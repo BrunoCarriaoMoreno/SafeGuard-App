@@ -1,4 +1,4 @@
-name: Build e deploy
+name: Build e Deploy
 
 on:
   push:
@@ -12,18 +12,9 @@ jobs:
       - name: Checkout do código
         uses: actions/checkout@v3
 
-  setup-environment:
-    runs-on: ubuntu-latest
-    needs: checkout
-    steps:
-      - name: Configuração do ambiente
-        run: |
-          echo "Configurando o ambiente..."
-          sleep 5
-
   build:
     runs-on: ubuntu-latest
-    needs: setup-environment
+    needs: checkout
     steps:
       - name: Compilação do código
         run: |
@@ -39,38 +30,11 @@ jobs:
           echo "Executando os testes..."
           sleep 5
 
-  verify:
-    runs-on: ubuntu-latest
-    needs: test
-    steps:
-      - name: Verificação dos testes
-        run: |
-          echo "Verificando os testes..."
-          sleep 5
-
-  generate-artifact:
-    runs-on: ubuntu-latest
-    needs: verify
-    steps:
-      - name: Geração de artefato
-        run: |
-          echo "Gerando o artefato de build..."
-          sleep 5
-
   deploy:
     runs-on: ubuntu-latest
-    needs: generate-artifact
+    needs: test
     steps:
       - name: Deploy e release
         run: |
           echo "Realizando deploy e release..."
-          sleep 5
-
-  success-notification:
-    runs-on: ubuntu-latest
-    needs: deploy
-    steps:
-      - name: Notificação de sucesso
-        run: |
-          echo "Processo concluído com sucesso!"
           sleep 5
