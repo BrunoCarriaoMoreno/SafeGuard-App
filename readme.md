@@ -67,4 +67,35 @@ Essa escolha de paradigmas permite que a aplicação mantenha uma estrutura robu
 
 ## Elaboração de um plano detalhado de Gerenciamento de Configuração.
 
-Elaboração de um plano detalhado de Gerenciamento de Configuração, incluindo políticas de versionamento, controle de mudanças e identificação de itens de configuração.
+Para garantir a consistência, rastreabilidade e controle de mudanças ao longo do ciclo de vida do desenvolvimento, foi elaborado um plano de Gerenciamento de Configuração que define as diretrizes de versionamento, controle de mudanças e identificação dos itens de configuração. Esse plano adota práticas estabelecidas para uma organização eficiente do código e facilita a colaboração entre equipes.
+
+### Políticas de Versionamento e Controle de Branches
+
+Utilizamos a estratégia Git Flow para o gerenciamento das branches com algumas personalizações devido o escopo do projeto, o que permite uma separação clara entre o desenvolvimento de novas funcionalidades e o trabalho em produção.
+
+***Branch Principal (main):*** Esta branch representa a versão estável do produto, adequada para produção.
+
+***Branch de Desenvolvimento (develop):*** É usada para consolidar novas funcionalidades antes de serem integradas à produção.
+
+***Branches de Funcionalidade (feature):*** Cada nova funcionalidade é desenvolvida em sua própria branch, que é criada a partir de develop e mergeada após a finalização e revisão.
+
+[imagem]
+
+### Controle de Mudanças
+
+As mudanças no código são controladas por meio de um fluxo de Pull Requests (PR) e revisões obrigatórias antes da integração. Para cada PR:
+
+- As mudanças são testadas e revisadas por outros membros da equipe (mínimo duas aprovações).
+- São executados testes automatizados para garantir a estabilidade e a integridade do código.
+
+[imagem]
+
+### Identificação de Itens de Configuração e Automação
+
+***Docker para Contêinerização:*** Utilizamos Dockerfiles para definir as configurações do ambiente, garantindo que o desenvolvimento, os testes e a produção sejam realizados em ambientes consistentes. Cada serviço possui seu próprio Dockerfile, o que permite a replicação fácil do ambiente e facilita o CI/CD.
+
+***Integração Contínua e Deploy Contínuo (CI/CD):*** Implementamos pipelines de CI/CD para automatizar os testes e a implantação. Cada alteração enviada ao repositório dispara um pipeline que realiza testes, build e, se aprovado, realiza o deploy da aplicação.
+
+[imagem]
+
+Esse plano de Gerenciamento de Configuração permite uma coordenação eficiente entre equipes e garante que o desenvolvimento e a produção permaneçam consistentes e seguros, facilitando a escalabilidade e a manutenção da aplicação.
