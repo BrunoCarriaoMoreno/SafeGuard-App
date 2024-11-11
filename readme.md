@@ -62,7 +62,13 @@ A principal categoria de manutenções realizadas no sistema é a manutenção p
 
 ## Testes abrangentes.
 
-Testes abrangentes para garantir a qualidade e confiabilidade do aplicativo.
+Para garantir a qualidade e confiabilidade do aplicativo foram implementados os seguintes testes:
+
+TESTE DE NAVEGAÇÃO - Verifica se a navegação da interface está funcionando corretamente ao interagir com os botões para a troca de páginas
+
+TESTE DE ATIVAÇÃO DO MONITORAMENTO - Verifica se o botão de ativação do monitoramento muda corretamente e age de acordo com o esperado
+
+TESTE DE INTERFACE - Verifica se a lista de anomalias está sendo gerada corretamente
 
 ## Análise e escolha dos paradigmas de programação.
 Para o desenvolvimento desta aplicação, foram adotados os paradigmas imperativo, funcional e orientado a objetos. Cada paradigma desempenha uma função específica e essencial, aproveitando os pontos fortes de cada abordagem para atender às necessidades de detecção de anomalias e interação com o usuário na aplicação.
