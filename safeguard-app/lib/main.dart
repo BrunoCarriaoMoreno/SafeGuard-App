@@ -11,7 +11,6 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
-
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -25,12 +24,25 @@ class MyApp extends StatelessWidget {
   }
 }
 
-class HomeScreen extends StatelessWidget {
+class HomeScreen extends StatefulWidget {
+  @override
+  _HomeScreenState createState() => _HomeScreenState();
+}
 
+class _HomeScreenState extends State<HomeScreen> {
   final List<Anomalia> anomalias = [
     Anomalia('Anomalia 1: Atividade suspeita detectada as 18:30!'),
     Anomalia('Anomalia 2: Download não autorizado interrompido "WhatsApp2.exe"'),
   ];
+
+  bool isMonitoring = false;
+
+  // Função para alternar o estado do monitoramento
+  void toggleMonitoring() {
+    setState(() {
+      isMonitoring = !isMonitoring;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -51,8 +63,8 @@ class HomeScreen extends StatelessWidget {
           ),
         ),
       ),
-        body: Column(
-          children: [
+      body: Column(
+        children: [
           Spacer(), // O espaço entre o topo e o botão
           Container(
             width: double.infinity,
@@ -68,10 +80,13 @@ class HomeScreen extends StatelessWidget {
                   ),
                   padding: EdgeInsets.symmetric(vertical: 20),
                 ),
-                onPressed: () {
-                  // Lógica para ativar/desativar o monitoramento
-                },
-                child: Text('Ativar/Desativar monitoramento', style: TextStyle(color: Colors.black)),
+                onPressed: toggleMonitoring, // Chama a função para alternar o estado
+                child: Text(
+                  isMonitoring
+                      ? 'Monitoramento Ativado'
+                      : 'Ativar Monitoramento', // Alterna o texto
+                  style: TextStyle(color: Colors.black),
+                ),
               ),
             ),
           ),
@@ -94,50 +109,53 @@ class HomeScreen extends StatelessWidget {
           ),
         ],
       ),
-
-        floatingActionButton: FloatingActionButton(
-          onPressed: () {
-            Navigator.push(context,
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          Navigator.push(context,
             MaterialPageRoute(builder: (context) => SettingsScreen()),
-            );
-          },
-          tooltip: 'Configurações',
-          child: Icon(Icons.settings),
-        ),
+          );
+        },
+        tooltip: 'Configurações',
+        child: Icon(Icons.settings),
+      ),
     );
   }
 }
-class SettingsScreen extends StatelessWidget {
 
+class SettingsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: Text('Configurações'),
-    ),
-    body: Center(
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: <Widget>[
-          //BOTÕES PARA OPÇÃO DE MONITORAMENTO
-          ElevatedButton(
-            style: ElevatedButton.styleFrom(backgroundColor:  const Color.fromARGB(255, 32, 232, 236)
-            ),
-            onPressed: () {
-              //LOGICA PARA O MONITORAMENTO DE DOWNLOADS
-            },
-          child: Text('Ativar  monitoramento de Downloads', style: TextStyle(color: Colors.black)),
-          ),
-          SizedBox(height: 20),
-          ElevatedButton(
-            onPressed: () {
-              Navigator.pop(context); //VOLTA PARA A TELA PRINCIPAL
-            },
-            child: Text('Voltar', style: TextStyle(color: Colors.black))
-          ),
-        ],
       ),
-    ),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            //BOTÕES PARA OPÇÃO DE MONITORAMENTO
+            ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                backgroundColor: const Color.fromARGB(255, 32, 232, 236),
+              ),
+              onPressed: () {
+                //LOGICA PARA O MONITORAMENTO DE DOWNLOADS
+              },
+              child: Text(
+                'Ativar monitoramento de Downloads',
+                style: TextStyle(color: Colors.black),
+              ),
+            ),
+            SizedBox(height: 20),
+            ElevatedButton(
+              onPressed: () {
+                Navigator.pop(context); //VOLTA PARA A TELA PRINCIPAL
+              },
+              child: Text('Voltar', style: TextStyle(color: Colors.black)),
+            ),
+          ],
+        ),
+      ),
     );
   }
 }
