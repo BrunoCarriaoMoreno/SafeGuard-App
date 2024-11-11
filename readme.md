@@ -38,8 +38,27 @@ Essa implementação é particularmente útil para detectar atividades incomuns 
 
 ## Documentação detalhada das manutenções realizadas no software.
 
-Documentação detalhada das manutenções realizadas no software, abrangendo as categorias corretiva, adaptativa, perfectiva e preditiva.
+A principal categoria de manutenções realizadas no sistema é a manutenção perfectiva, devido ao estágio inicial de desenvolvimento em que ele se encontra. Nesse momento, ainda não existem usuários ativos, e o foco está em ajustar, aprimorar e expandir as funcionalidades para garantir que o sistema atenda aos requisitos estabelecidos de forma eficiente e robusta. Como o sistema ainda não foi amplamente utilizado, não surgiram necessidades de correção de falhas operacionais, o que prioriza aprimoramentos que visam tornar a aplicação mais eficaz e bem documentada, em vez de ajustes corretivos ou adaptativos. Assim, é possível evidenciar a principal categoria de acordo com a coleção de atividades planejadas para o sistema inserida logo abaixo.
 
+- [NAVEGAÇÃO] Desenvolver modelo base da navegação do aplicativo
+- [TECH] Configurar workflow para teste/build e release
+- [ANÁLISE DE REDE] Desenvolver leitura de pacotes de rede
+- [TECH] Definir qual abordagem de aprendizado de máquina será utilizado
+- [TECH] Desenvolver validação do arquivo do banco de dados
+- [TELA PRINCIPAL] Desenvolver componente de ativação de monitoramento
+- [TELA PRINCIPAL] Desenvolver o componente de  listagem de anomalias
+- [ANÁLISE DE REDE] Desenvolver sistema de análise dos pacotes de rede
+- [TECH] Utilizar o tensor flow para treinar o machine learning
+- [TELA DE CONFIGURAÇÕES] Desenvolver tela de configurações do sistema
+- [NOTIFICAÇÃO] Desenvolver alertas de segurança modelo push
+- [DOCUMENTAÇÃO] Criar manual do usuário
+- [CONFIGURAÇÕES] Desenvolver opção de habilitar monitoramento de downloads
+- [CONFIGURAÇÕES] Desenvolver opção de habilitar monitoramento de navegação web
+- [CONFIGURAÇÕES] Desenvolver opção para ativar ou desativar notificações
+- [CONFIGURAÇÕES] Desenvolver botão de navegação para a tela de manual do usuário
+- [DOCUMENTAÇÃO] Criar termos de uso do aplicativo
+- [DOCUMENTAÇÃO] Criar políticas de privacidade do aplicativo
+- [TELA MANUAL DO USUÁRIO] Desenvolver componente de visualização do manual do usuário
 
 ## Testes abrangentes.
 
