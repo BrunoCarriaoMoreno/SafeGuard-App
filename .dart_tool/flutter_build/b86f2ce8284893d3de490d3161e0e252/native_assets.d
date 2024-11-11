@@ -1,0 +1,1 @@
+ C:\\Users\\varne\\OneDrive\\arquivos\ de\ programacao\\SafeGuard\\safeguard\\.dart_tool\\flutter_build\\b86f2ce8284893d3de490d3161e0e252\\native_assets.yaml: 

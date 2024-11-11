@@ -34,42 +34,67 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(  
-        appBar: AppBar(
-          title: Text('Bem vindo ao SafeGuard', style: TextStyle(color:Colors.white)),
-          backgroundColor: Color(0xFF1C1C1C)
-        ),
-        body: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              ElevatedButton(
-                style: ElevatedButton.styleFrom(backgroundColor: const Color.fromARGB(255, 32, 232, 236)),
-                onPressed: () {
-                  //Aqui será onde a lógica para o desligamento do monitoramento vai ser aplicada
-                },
-                child: Text('Ativar/Desativar monitoramento', style: TextStyle(color: Colors.white)),
-              ),
-              SizedBox(height: 20),
-              Text('Lista de Anomalias:', style: TextStyle(color: Colors.white)),
-
-              Expanded(
-                child: ListView.builder(
-                itemCount: anomalias.length,
-                itemBuilder: (context, index) {
-                  return ListTile(
-                    title: Text(
-                      anomalias[index].descricao,
-                      style: TextStyle(color: Colors.white)),
-                    
-                    
-                  );
-                },
+    return Scaffold(
+      appBar: PreferredSize(
+        preferredSize: Size.fromHeight(100), // Ajusta a altura do AppBar
+        child: Padding(
+          padding: const EdgeInsets.only(top: 60), // Move o AppBar para baixo
+          child: AppBar(
+            automaticallyImplyLeading: false, // Evita o botão de volta automático
+            title: Center( // Centraliza o título
+              child: Text(
+                'Bem-vindo ao SafeGuard',
+                style: TextStyle(color: Colors.white),
               ),
             ),
-          ],
-         ),
-       ),
+            backgroundColor: Color(0xFF1C1C1C),
+          ),
+        ),
+      ),
+        body: Column(
+          children: [
+          Spacer(), // O espaço entre o topo e o botão
+          Container(
+            width: double.infinity,
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 20),
+              child: ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: const Color.fromARGB(255, 32, 232, 236),
+                  minimumSize: Size(double.infinity, 70), // Botão grande
+                  textStyle: TextStyle(fontSize: 22),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(15),
+                  ),
+                  padding: EdgeInsets.symmetric(vertical: 20),
+                ),
+                onPressed: () {
+                  // Lógica para ativar/desativar o monitoramento
+                },
+                child: Text('Ativar/Desativar monitoramento', style: TextStyle(color: Colors.black)),
+              ),
+            ),
+          ),
+          SizedBox(height: 30), // Espaço entre o botão e a lista
+          Text('Últimas anomalias reportadas:', style: TextStyle(color: Colors.white)),
+          Expanded(
+            child: ListView.builder(
+              shrinkWrap: true,
+              padding: EdgeInsets.only(bottom: 20),
+              itemCount: anomalias.length,
+              itemBuilder: (context, index) {
+                return ListTile(
+                  title: Text(
+                    anomalias[index].descricao,
+                    style: TextStyle(color: Colors.white),
+                  ),
+                );
+              },
+            ),
+          ),
+        ],
+      ),
+
         floatingActionButton: FloatingActionButton(
           onPressed: () {
             Navigator.push(context,
@@ -101,14 +126,14 @@ class SettingsScreen extends StatelessWidget {
             onPressed: () {
               //LOGICA PARA O MONITORAMENTO DE DOWNLOADS
             },
-          child: Text('Monitorar Downloads', style: TextStyle(color: Colors.white)),
+          child: Text('Ativar  monitoramento de Downloads', style: TextStyle(color: Colors.black)),
           ),
           SizedBox(height: 20),
           ElevatedButton(
             onPressed: () {
               Navigator.pop(context); //VOLTA PARA A TELA PRINCIPAL
             },
-            child: Text('Voltar',)
+            child: Text('Voltar', style: TextStyle(color: Colors.black))
           ),
         ],
       ),
